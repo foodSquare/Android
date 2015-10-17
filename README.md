@@ -118,12 +118,12 @@ Also, if you have used AndTinder on your app and you let me know, I can link it 
 Contact
 --------------------
 
-Enrique López Mañas - <eenriquelopez@gmail.com>
+
 
 License
 -------
 
-    Copyright 2014 Enrique López Mañas
+    Copyright 2014
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -138,17 +138,10 @@ License
     limitations under the License.
 
 
-<a href="https://twitter.com/eenriquelopez">
-  <img alt="Follow me on Twitter"
-       src="https://raw.github.com/kikoso/android-stackblur/master/art/twitter.png" />
-</a>
 <a href="https://plus.google.com/103250453274111396206">
   <img alt="Follow me on Google+"
        src="https://raw.github.com/kikoso/android-stackblur/master/art/google-plus.png" />
 </a>
-<a href="http://de.linkedin.com/pub/enrique-l%C3%B3pez-ma%C3%B1as/15/4a9/876">
-  <img alt="Follow me on LinkedIn"
-       src="https://raw.github.com/kikoso/android-stackblur/master/art/linkedin.png" />
 
 [1]: https://github.com/kikoso/AndTinder/tree/master/AndTinder
 [2]: https://github.com/kikoso/AndTinder/tree/master/AndTinderDemo
