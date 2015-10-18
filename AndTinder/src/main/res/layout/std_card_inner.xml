@@ -3,8 +3,11 @@
     android:id="@+id/global_container"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:gravity="center">
+
 
     <TextView
         android:id="@+id/title"
@@ -13,34 +16,62 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/card_bg"
         tools:text="Title"
         android:padding="10dp"/>
 
-    <View
+    <!--View
         android:id="@+id/divider_title"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_below="@id/title"
         android:background="@color/card_outline"
-        />
+        /-->
+
+
+
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/divider_title"
+        android:layout_height="match_parent"
         android:layout_alignWithParentIfMissing="true"
+        android:layout_below="@id/title"
+        tools:src="@drawable/picture1"
+        android:gravity="center"
         android:scaleType="centerCrop"
-        tools:src="@drawable/picture1"/>
+        android:layout_centerInParent="true"
+        />
 
-    <View
+    <!--centerInside
+    android:layout_gravity="center"
+        android:scaleType="centerCrop"
+    -->
+    <!--LinearLayout
+        android:id="@+id/ly_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/title"
+        android:background="@color/card_bg"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/picture1"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+    </LinearLayout-->
+
+    <!--View
         android:id="@+id/divider_bottom"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@id/image"
+        android:layout_below="@id/ly_image"
         android:background="@color/card_outline" />
 
     <View
@@ -106,6 +137,6 @@
         android:layout_below="@id/image"
         android:background="?android:attr/selectableItemBackground"
         android:padding="10dp"
-        android:src="@drawable/people"/>
+        android:src="@drawable/people"/-->
 
 </RelativeLayout>
