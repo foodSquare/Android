@@ -4,7 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
+        android:id="@+id/txt_title"
+        android:text="DeliCoin"
+        style="@android:style/TextAppearance.Large.Inverse"
+        android:textColor="#e05354"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/card_bg"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"/>
+
+    <!--LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -27,7 +42,7 @@
             android:background="@color/card_bg"
             android:padding="10dp"/>
 
-    </LinearLayout>
+    </LinearLayout-->
     <com.andtinder.view.CardContainer
         android:id="@+id/layoutview"
         android:layout_below="@+id/title"
@@ -49,20 +64,24 @@
         android:id="@+id/layout_buttons"
         android:layout_below="@+id/layoutview"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:orientation="horizontal"
         android:layout_gravity="center"
         android:gravity="center">
 
-        <Button
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:hint="DisLike" />
-        <Button
+            android:hint="DisLike"
+            android:src="@drawable/dislike"
+            android:paddingRight="100dp"/>
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:hint="Like" />
+            android:hint="Like"
+            android:src="@drawable/like"
+            android:paddingLeft="100dp"/>
     </LinearLayout>
 </LinearLayout>

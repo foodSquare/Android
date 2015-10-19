@@ -12,7 +12,8 @@
             android:name="com.andtinder.demo.MainActivity"
             android:label="@string/app_name"
             android:configChanges="screenSize|orientation"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -11,7 +11,6 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Window;
 
 import com.andtinder.model.CardModel;
 import com.andtinder.view.CardContainer;
@@ -27,8 +26,15 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.mainlayout);
+		//requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+		//Enable display title
+//		this.requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+//		setContentView(R.layout.main_title);
+//		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
+		//--End Title
+
+		setContentView(R.layout.mainlayout);//todo:rrcc
 
 		mCardContainer = (CardContainer) findViewById(R.id.layoutview);
 
