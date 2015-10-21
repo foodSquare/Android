@@ -6,7 +6,7 @@
  *
  */
 
-package com.andtinder;
+package com.deliCoin;
 
 public class Utils {
 

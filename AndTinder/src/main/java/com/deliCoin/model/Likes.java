@@ -6,7 +6,7 @@
  *
  */
 
-package com.andtinder.model;
+package com.deliCoin.model;
 
 public class Likes {
 	 public enum Like {

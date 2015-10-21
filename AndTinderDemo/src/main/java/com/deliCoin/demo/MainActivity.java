@@ -5,16 +5,16 @@
  * and dismiss-to-unlike, and use different sorting mechanisms.
  */
 
-package com.andtinder.demo;
+package com.deliCoin.demo;
 
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.andtinder.model.CardModel;
-import com.andtinder.view.CardContainer;
-import com.andtinder.view.SimpleCardStackAdapter;
+import com.deliCoin.model.CardModel;
+import com.deliCoin.view.CardContainer;
+import com.deliCoin.view.SimpleCardStackAdapter;
 
 public class MainActivity extends Activity {
 

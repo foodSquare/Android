@@ -1,4 +1,4 @@
-package com.andtinder.view;
+package com.deliCoin.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -24,9 +24,9 @@ import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 
-import com.andtinder.R;
-import com.andtinder.model.CardModel;
-import com.andtinder.model.Orientations.Orientation;
+import com.deliCoin.R;
+import com.deliCoin.model.CardModel;
+import com.deliCoin.model.Orientations.Orientation;
 
 import java.util.Random;
 

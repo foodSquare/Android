@@ -5,7 +5,7 @@
  * and dismiss-to-unlike, and use different sorting mechanisms.
  */
 
-package com.andtinder.model;
+package com.deliCoin.model;
 
 public class Orientations {
 	 public enum Orientation {
