@@ -8,7 +8,7 @@
         android:id="@+id/txt_title"
         android:text="DeliCoin"
         style="@android:style/TextAppearance.Large.Inverse"
-        android:textColor="#e05354"
+        android:textColor="#ffa000"
         android:textSize="45sp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"

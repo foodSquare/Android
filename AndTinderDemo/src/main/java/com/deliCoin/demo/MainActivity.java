@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
 
 
 		Firebase myFirebaseRef = new Firebase("https://delicoin.firebaseio.com/");
-		myFirebaseRef.child("mobilePics").addValueEventListener(new ValueEventListener() {
+		myFirebaseRef.child("mobilePicsWithoutURL").addValueEventListener(new ValueEventListener() {
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
 				Log.i(TAG, dataSnapshot.getValue().toString());  //prints "Do you have data? You'll love Firebase."
@@ -77,12 +77,29 @@ public class MainActivity extends Activity {
 					Resources r = getResources();
 
 					if(listPics!=null && listPics.size()>0) {
+						int i = 0;
 						for(Pics data:listPics)
 						{
 							String url = "https://delicoin.firebaseapp.com" + data.getImageUrl();
 
-							Retrievedata taskPic = new Retrievedata();
-							taskPic.execute(url);
+							/*Retrievedata taskPic = new Retrievedata();
+							taskPic.execute(url);*/
+
+							/*Resources res = getResources();
+							int resourceId = res.getIdentifier(
+									data.getImageUrl(), "drawable", getPackageName() );
+							adapter.add(new CardModel("", "",getDrawable(resourceId) ));
+
+							int result =
+									getResources().getIdentifier(data.getImageUrl(), "drawable", "com.deliCoin.demo");*/
+							if(i>=40)
+							{
+								break;
+							}
+							int result = getResources().getIdentifier(data.getImageUrl(), "drawable", getPackageName());
+							adapter.add(new CardModel("", "",getResources().getDrawable(result )));
+							i++;
+							Log.i(TAG, i+"");
 
 						}
 

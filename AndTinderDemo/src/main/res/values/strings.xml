@@ -1,4 +1,11 @@
 <resources>
-    <string name="app_name">DeliCoinppp</string>
+    <string name="app_name">DeliCoin</string>
     <string name="title_activity_login">Login</string>
+
+    <!-- Facebook -->
+    <string name="facebook_app_id">864087463670773</string>
+    <string name="title_activity_facebook">FacebookActivity</string>
+    <string name="title_activity_main_screen">MainScreen</string>
+    <string name="title_activity_list_foursquare">ListFoursquare</string>
+
 </resources>
