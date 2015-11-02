@@ -1,6 +1,9 @@
 package com.deliCoin.demo;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -49,8 +52,8 @@ public class Login extends ActionBarActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                /*Intent i = new Intent(Login.this, MainActivity.class);
-                startActivity(i);*/
+                Intent i = new Intent(Login.this, MainActivity.class);
+                startActivity(i);
                 Log.i(TAG, "Logged in");
 //                info.setText(
 //                        "User ID: "
@@ -73,7 +76,56 @@ public class Login extends ActionBarActivity {
 
             }
         });
+        Log.i(TAG, "called facebook");
     }
+
+    //Check connection
+    /*public void checkConnectionWithFacebook()
+    {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "com.delicoin.android.delicoin3",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+    }*/
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //callbackManager.onActivityResult(requestCode, resultCode, data);
+//        super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+    /*
+    * Method to detect the availability of Facebook
+    * */
+    public boolean isFacebookAvailable() {
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, "Test; please ignore");
+        intent.setType("text/plain");
+
+        final PackageManager pm = this.getApplicationContext().getPackageManager();
+        for(ResolveInfo resolveInfo: pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)){
+            ActivityInfo activity = resolveInfo.activityInfo;
+            // Log.i("actividad ->", activity.name);
+            if (activity.name.contains("com.facebook.katana")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     @Override
     protected void onResume() {

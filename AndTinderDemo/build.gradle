@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        minSdkVersion 13
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -29,5 +29,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.+'
     compile project(':AndTinder')
     compile 'com.firebase:firebase-client-android:2.4.0+'
-    compile 'com.facebook.android:facebook-android-sdk:4.5.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
 }
