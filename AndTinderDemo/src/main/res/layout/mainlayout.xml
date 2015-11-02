@@ -76,6 +76,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/dislike"
             android:layout_marginRight="100dp"
+
             />
         <ImageButton
             android:layout_width="wrap_content"

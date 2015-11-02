@@ -15,6 +15,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.deliCoin.bean.Pics;
+import com.deliCoin.bean.User;
 import com.deliCoin.model.CardModel;
 import com.deliCoin.view.CardContainer;
 import com.deliCoin.view.SimpleCardStackAdapter;
@@ -116,6 +118,8 @@ public class MainActivity extends Activity {
 						cardModel.setOnCardDismissedListener(new CardModel.OnCardDismissedListener() {
 							@Override
 							public void onLike() {
+								User user = User.getInstance();
+								Log.i("Swipeable Cards",user.toString());
 								Log.i("Swipeable Cards","I like the card");
 							}
 
