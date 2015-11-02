@@ -78,9 +78,9 @@ public class MainActivity extends Activity {
 
 					if(listPics!=null && listPics.size()>0) {
 						int i = 0;
-						for(Pics data:listPics)
+						for(Pics pic:listPics)
 						{
-							String url = "https://delicoin.firebaseapp.com" + data.getImageUrl();
+							String url = "https://delicoin.firebaseapp.com" + pic.getImageUrl();
 
 							/*Retrievedata taskPic = new Retrievedata();
 							taskPic.execute(url);*/
@@ -96,8 +96,8 @@ public class MainActivity extends Activity {
 							{
 								break;
 							}
-							int result = getResources().getIdentifier(data.getImageUrl(), "drawable", getPackageName());
-							adapter.add(new CardModel("", "",getResources().getDrawable(result )));
+							int result = getResources().getIdentifier(pic.getImageUrl(), "drawable", getPackageName());
+							adapter.add(new CardModel(pic.getTitle(), "",getResources().getDrawable(result )));
 							i++;
 							Log.i(TAG, i+"");
 
@@ -126,7 +126,6 @@ public class MainActivity extends Activity {
 						});
 
 						adapter.add(cardModel);
-
 						mCardContainer.setAdapter(adapter);
 					}
 				} catch (Exception e) {
@@ -134,7 +133,6 @@ public class MainActivity extends Activity {
 				}
 
 				//SimpleCardStackAdapter adapter = new SimpleCardStackAdapter(this);
-
 				//adapter.add(new CardModel("Ensalada Casero Jota", "Description goes here", )));
 
 			}

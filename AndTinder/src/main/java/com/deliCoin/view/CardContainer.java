@@ -103,8 +103,8 @@ public class CardContainer extends AdapterView<ListAdapter> {
         TypedArray a = getContext().obtainStyledAttributes(attr,
                 R.styleable.CardContainer);
 
-        //setGravity(a.getInteger(R.styleable.CardContainer_android_gravity, Gravity.CENTER));
-        setGravity(Gravity.CENTER);
+        setGravity(a.getInteger(R.styleable.CardContainer_android_gravity, Gravity.CENTER));
+        //setGravity(Gravity.CENTER); //TODO: rrcc
         int orientation = a.getInteger(R.styleable.CardContainer_orientation, 1);
         setOrientation(Orientation.fromIndex(orientation)); //TODO:rrcc
         //setOrientation(Orientation.Ordered);//FOR ME
