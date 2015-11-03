@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.deliCoin.bean.User;
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -61,6 +62,13 @@ public class Login extends ActionBarActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
+        if(isLoggedIn())
+        {
+            btnWithoutLogin.setVisibility(View.VISIBLE);
+        }else
+        {
+            btnWithoutLogin.setVisibility(View.GONE);
+        }
 
         loginButton = (LoginButton)findViewById(R.id.login_button);
         loginButton.setReadPermissions("user_friends");
@@ -92,19 +100,16 @@ public class Login extends ActionBarActivity {
                                     //ref.child(user.getId()).addValueEventListener(new ValueEventListener() {
                                     ref.child(user.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
-                                        public void onDataChange(DataSnapshot dataSnapshot)
-                                        {
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
                                             Firebase ref = new Firebase("https://delicoin.firebaseio.com/androidApp/users/" + user.getId());
                                             if (dataSnapshot.exists()) {
-                                                Long countLogin = dataSnapshot.child("countLogin")!=null?
-                                                        Long.parseLong(dataSnapshot.child("countLogin").getValue().toString()):0l;
+                                                Long countLogin = dataSnapshot.child("countLogin") != null ?
+                                                        Long.parseLong(dataSnapshot.child("countLogin").getValue().toString()) : 0l;
                                                 Map<String, Object> countLoginMap = new HashMap<String, Object>();
                                                 Long count = countLogin + 1L;
                                                 countLoginMap.put("countLogin", count + "");
                                                 ref.updateChildren(countLoginMap);
-                                            }
-                                            else
-                                            {
+                                            } else {
                                                 ref.setValue(user);
                                             }
 
@@ -181,22 +186,52 @@ public class Login extends ActionBarActivity {
         return false;
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        if(isLoggedIn())
+        {
+            btnWithoutLogin.setVisibility(View.VISIBLE);
+        }else
+        {
+            btnWithoutLogin.setVisibility(View.GONE);
+        }
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
+
+
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        // Logs 'install' and 'app activate' App Events.
-        AppEventsLogger.activateApp(this);
+        if(isLoggedIn())
+        {
+            btnWithoutLogin.setVisibility(View.VISIBLE);
+        }else
+        {
+            btnWithoutLogin.setVisibility(View.GONE);
+        }
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
+
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
     }
 
 
+    /*Check if the session of facebook is active
+    * it helps us to show continue button*/
+    public boolean isLoggedIn() {
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        return accessToken != null;
+    }
 }

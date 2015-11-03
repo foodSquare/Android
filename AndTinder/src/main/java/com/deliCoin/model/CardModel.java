@@ -18,6 +18,7 @@ public class CardModel {
 	private Drawable cardImageDrawable;
 	private Drawable cardLikeImageDrawable;
 	private Drawable cardDislikeImageDrawable;
+	private String   category;
 
     private OnCardDismissedListener mOnCardDismissedListener = null;
 
@@ -33,13 +34,14 @@ public class CardModel {
     }
 
 	public CardModel() {
-		this(null, null, (Drawable)null);
+		this(null, null, null, (Drawable)null);
 	}
 
-	public CardModel(String title, String description, Drawable cardImage) {
+	public CardModel(String title, String description, String category, Drawable cardImage) {
 		this.title = title;
 		this.description = description;
 		this.cardImageDrawable = cardImage;
+		this.category = category;
 	}
 
 	public CardModel(String title, String description, Bitmap cardImage) {
@@ -104,4 +106,12 @@ public class CardModel {
     public OnClickListener getOnClickListener() {
         return this.mOnClickListener;
     }
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 }
