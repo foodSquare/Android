@@ -1,12 +1,12 @@
-package com.deliCoin.view;
+package com.deliCoin2.view;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.deliCoin.R;
-import com.deliCoin.model.CardModel;
+import com.deliCoin2.R;
+import com.deliCoin2.model.CardModel;
 
 import java.util.ArrayList;
 import java.util.Collection;

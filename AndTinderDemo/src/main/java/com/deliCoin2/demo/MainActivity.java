@@ -5,7 +5,7 @@
  * and dismiss-to-unlike, and use different sorting mechanisms.
  */
 
-package com.deliCoin.demo;
+package com.deliCoin2.demo;
 
 import android.app.Activity;
 import android.content.res.Resources;
@@ -15,11 +15,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.deliCoin.bean.Pics;
-import com.deliCoin.bean.User;
-import com.deliCoin.model.CardModel;
-import com.deliCoin.view.CardContainer;
-import com.deliCoin.view.SimpleCardStackAdapter;
+import com.deliCoin2.bean.Pics;
+import com.deliCoin2.bean.User;
+import com.deliCoin2.model.CardModel;
+import com.deliCoin2.view.CardContainer;
+import com.deliCoin2.view.SimpleCardStackAdapter;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -93,8 +93,8 @@ public class MainActivity extends Activity {
 							adapter.add(new CardModel("", "",getDrawable(resourceId) ));
 
 							int result =
-									getResources().getIdentifier(data.getImageUrl(), "drawable", "com.deliCoin.demo");*/
-							if(i>=5)
+									getResources().getIdentifier(data.getImageUrl(), "drawable", "com.deliCoin2.demo");*/
+							if(i>=30)
 							{
 								break;
 							}

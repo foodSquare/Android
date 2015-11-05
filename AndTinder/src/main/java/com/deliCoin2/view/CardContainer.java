@@ -1,4 +1,4 @@
-package com.deliCoin.view;
+package com.deliCoin2.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -24,9 +24,9 @@ import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 
-import com.deliCoin.R;
-import com.deliCoin.model.CardModel;
-import com.deliCoin.model.Orientations.Orientation;
+import com.deliCoin2.R;
+import com.deliCoin2.model.CardModel;
+import com.deliCoin2.model.Orientations.Orientation;
 
 import java.util.Random;
 

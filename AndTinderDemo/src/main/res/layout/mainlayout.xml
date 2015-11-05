@@ -43,7 +43,7 @@
             android:padding="10dp"/>
 
     </LinearLayout-->
-    <com.deliCoin.view.CardContainer
+    <com.deliCoin2.view.CardContainer
         android:id="@+id/layoutview"
         android:layout_below="@+id/title"
         android:layout_width="match_parent"

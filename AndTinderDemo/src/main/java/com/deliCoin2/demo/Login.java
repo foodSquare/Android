@@ -1,4 +1,4 @@
-package com.deliCoin.demo;
+package com.deliCoin2.demo;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -11,32 +11,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.deliCoin.bean.User;
+import com.deliCoin2.bean.User;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
 import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
-
-import org.json.JSONObject;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Login extends ActionBarActivity {
 
     private TextView info;
-    private LoginButton loginButton;
+    //private LoginButton loginButton;
     private Button btnWithoutLogin;
     private CallbackManager callbackManager;
     public User user = User.getInstance();
@@ -62,6 +47,7 @@ public class Login extends ActionBarActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
+        /*
         if(isLoggedIn())
         {
             btnWithoutLogin.setVisibility(View.VISIBLE);
@@ -70,6 +56,7 @@ public class Login extends ActionBarActivity {
             btnWithoutLogin.setVisibility(View.GONE);
         }
 
+        loginButton.setVisibility(View.GONE);
         loginButton = (LoginButton)findViewById(R.id.login_button);
         loginButton.setReadPermissions("user_friends");
         loginButton.setReadPermissions(Arrays.asList("public_profile, email, user_birthday"));
@@ -156,7 +143,7 @@ public class Login extends ActionBarActivity {
                 info.setText("Login attempt failed.");
 
             }
-        });
+        });*/
         Log.i(TAG, "called facebook");
     }
 
@@ -190,13 +177,13 @@ public class Login extends ActionBarActivity {
     protected void onRestart() {
         super.onRestart();
 
-        if(isLoggedIn())
-        {
-            btnWithoutLogin.setVisibility(View.VISIBLE);
-        }else
-        {
-            btnWithoutLogin.setVisibility(View.GONE);
-        }
+//        if(isLoggedIn())
+//        {
+//            btnWithoutLogin.setVisibility(View.VISIBLE);
+//        }else
+//        {
+//            btnWithoutLogin.setVisibility(View.GONE);
+//        }
         // Logs 'install' and 'app activate' App Events.
         AppEventsLogger.activateApp(this);
 
@@ -207,13 +194,13 @@ public class Login extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
 
-        if(isLoggedIn())
-        {
-            btnWithoutLogin.setVisibility(View.VISIBLE);
-        }else
-        {
-            btnWithoutLogin.setVisibility(View.GONE);
-        }
+//        if(isLoggedIn())
+//        {
+//            btnWithoutLogin.setVisibility(View.VISIBLE);
+//        }else
+//        {
+//            btnWithoutLogin.setVisibility(View.GONE);
+//        }
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
     }

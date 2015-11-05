@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.deliCoin.demo" >
+    package="com.deliCoin2.demo" >
 
     <uses-sdk android:minSdkVersion="13" />
 
@@ -31,7 +31,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Login"
+            android:name="com.deliCoin2.demo.Login"
             android:configChanges="screenSize|orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -48,15 +48,15 @@
         </activity-->
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.deliCoin2.demo.MainActivity"
             android:configChanges="screenSize|orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".Login" >
+            android:parentActivityName="com.deliCoin2.demo.Login" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.deliCoin.demo.Login" />
+                android:value="com.deliCoin2.demo.Login" />
         </activity>
 
         <activity

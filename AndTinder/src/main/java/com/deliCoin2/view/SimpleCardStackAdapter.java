@@ -1,4 +1,4 @@
-package com.deliCoin.view;
+package com.deliCoin2.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.deliCoin.R;
-import com.deliCoin.model.CardModel;
+import com.deliCoin2.R;
+import com.deliCoin2.model.CardModel;
 
 public final class SimpleCardStackAdapter extends CardStackAdapter {
 

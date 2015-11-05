@@ -1,4 +1,4 @@
-package com.deliCoin.bean;
+package com.deliCoin2.bean;
 
 /**
  * Created by RUTH on 15/11/02.

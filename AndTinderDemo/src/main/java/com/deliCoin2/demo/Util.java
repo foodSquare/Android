@@ -1,4 +1,4 @@
-package com.deliCoin.demo;
+package com.deliCoin2.demo;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

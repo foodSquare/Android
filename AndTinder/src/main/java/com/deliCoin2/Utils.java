@@ -6,7 +6,7 @@
  *
  */
 
-package com.deliCoin;
+package com.deliCoin2;
 
 public class Utils {
 
