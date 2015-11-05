@@ -13,17 +13,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.deliCoin2.bean.Pics;
-import com.deliCoin2.bean.User;
 import com.deliCoin2.model.CardModel;
 import com.deliCoin2.view.CardContainer;
 import com.deliCoin2.view.SimpleCardStackAdapter;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -45,7 +39,7 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Firebase.setAndroidContext(this);
+		//Firebase.setAndroidContext(this);
 
 		//requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -65,7 +59,44 @@ public class MainActivity extends Activity {
 //		URL url = new URL(builtUrlData.toString());
 
 
-		Firebase myFirebaseRef = new Firebase("https://delicoin.firebaseio.com/");
+		Resources r = getResources();
+		adapter.add(new CardModel("Ensalada Casero Jota", "Description goes here","", r.getDrawable(R.drawable.ensalada_casero_jota)));
+		adapter.add(new CardModel("Ensalada de Mango", "Description goes here","", r.getDrawable(R.drawable.ensalada_de_mango)));
+		adapter.add(new CardModel("Ensalada de Pollo", "Description goes here","", r.getDrawable(R.drawable.ensalada_de_pollo)));
+		adapter.add(new CardModel("Ensalada de Quinua", "Description goes here","", r.getDrawable(R.drawable.ensalada_de_quinua)));
+		adapter.add(new CardModel("Granola Falluta", "Description goes here","", r.getDrawable(R.drawable.granola_falluta)));
+		/*adapter.add(new CardModel("Hispania Paella de Carne", "Description goes here","", r.getDrawable(R.drawable.hispaniapaelladecarne2)));
+		adapter.add(new CardModel("Hispania Paella Marina", "Description goes here","", r.getDrawable(R.drawable.hispaniapaellamarinera)));
+		adapter.add(new CardModel("Hispania Paella Extra de Mariscos", "Description goes here","", r.getDrawable(R.drawable.hispaniapaellaextrademariscos)));
+		adapter.add(new CardModel("Hispania Paella Vegetariana", "Description goes here","", r.getDrawable(R.drawable.hispaniapaellavegetariana)));
+		adapter.add(new CardModel("Lomo en Pieza", "Description goes here","", r.getDrawable(R.drawable.lomo_en_pieza)));
+*/
+		/*adapter.add(new CardModel("Bolsillo de Tofu", "Description goes here","", r.getDrawable(R.drawable.redmonkey_bolsillo_de_tofu)));
+		adapter.add(new CardModel("Brochetas de Seitan", "Description goes here","", r.getDrawable(R.drawable.redmonkey_brochetas_de_seitan)));
+		adapter.add(new CardModel("Burquesa de Frijoles Negros", "Description goes here","", r.getDrawable(R.drawable.redmonkey_burguesa_de_frijolesjpg)));
+		adapter.add(new CardModel("Crepas Negras", "Description goes here","", r.getDrawable(R.drawable.redmonkey_crepas_negras)));
+		adapter.add(new CardModel("Burguesa de Garbanzo", "Description goes here","", r.getDrawable(R.drawable.redmonkey_burguesa_de_garbanzojpg)));
+		adapter.add(new CardModel("Burguesa de Yuca Verde", "Description goes here","", r.getDrawable(R.drawable.redmonkey_burguesa_de_yuca_verjpg)));
+		adapter.add(new CardModel("Crepas Negras", "Description goes here","", r.getDrawable(R.drawable.redmonkey_crepas_negras)));
+		adapter.add(new CardModel("Desayuno Vegano", "Description goes here","", r.getDrawable(R.drawable.redmonkey_desayuno_vegano)));
+		adapter.add(new CardModel("Wrap de Champiniones", "Description goes here","", r.getDrawable(R.drawable.wrap_de_champin_ones)));
+		adapter.add(new CardModel("Wrap de Quinua Blanca y Negra", "Description goes here","", r.getDrawable(R.drawable.wrap_de_quinua_blanca_y_negra)));
+
+*/
+		/*adapter.add(new CardModel("Hojas de Brocoli", "Description goes here","", r.getDrawable(R.drawable.redmonkey_hojas_de_brocoli)));
+		adapter.add(new CardModel("Jugo de Pepino y Apio", "Description goes here","", r.getDrawable(R.drawable.redmonkey_jugo_de_pepino_apio_jpg)));
+		adapter.add(new CardModel("Pizza de Berenjena", "Description goes here","", r.getDrawable(R.drawable.redmonkey_pizza_de_berenjena)));
+		adapter.add(new CardModel("Pizza de Vegetales", "Description goes here","", r.getDrawable(R.drawable.redmonkey_pizza_de_vegetales)));
+		adapter.add(new CardModel("Sandwich de Kolla", "Description goes here","", r.getDrawable(R.drawable.redmonkey_sandwich_de_kolla)));
+		adapter.add(new CardModel("Sopa de Papa", "Description goes here","", r.getDrawable(R.drawable.redmonkey_sopa_de_papa)));
+		adapter.add(new CardModel("Sopa de Walusa", "Description goes here","", r.getDrawable(R.drawable.redmonkey_sopa_de_walusa_y_porjpg)));
+		adapter.add(new CardModel("Sopa Miso", "Description goes here","", r.getDrawable(R.drawable.redmonkey_sopa_miso)));
+		adapter.add(new CardModel("Tarta de Chocolate", "Description goes here","", r.getDrawable(R.drawable.redmonkey_tarta_de_chocolate_bjpg)));
+		adapter.add(new CardModel("Sandwich de Carne", "Description goes here","", r.getDrawable(R.drawable.sandwich_de_carne_a_la_bbq)));
+		adapter.add(new CardModel("Tabla Mixta", "Description goes here","", r.getDrawable(R.drawable.tablamixta)));
+*/
+
+		/*Firebase myFirebaseRef = new Firebase("https://delicoin.firebaseio.com/");
 		myFirebaseRef.child("mobilePicsWithoutURL").addValueEventListener(new ValueEventListener() {
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
@@ -80,26 +111,35 @@ public class MainActivity extends Activity {
 
 					if(listPics!=null && listPics.size()>0) {
 						int i = 0;
-						for(Pics pic:listPics)
+						/*for(Pics pic:listPics)
 						{
 							String url = "https://delicoin.firebaseapp.com" + pic.getImageUrl();
 
-							/*Retrievedata taskPic = new Retrievedata();
-							taskPic.execute(url);*/
+							*****Retrievedata taskPic = new Retrievedata();
+							taskPic.execute(url);****
 
-							/*Resources res = getResources();
-							int resourceId = res.getIdentifier(
-									data.getImageUrl(), "drawable", getPackageName() );
-							adapter.add(new CardModel("", "",getDrawable(resourceId) ));
-
-							int result =
-									getResources().getIdentifier(data.getImageUrl(), "drawable", "com.deliCoin2.demo");*/
+//							Resources res = getResources();
+//							int resourceId = res.getIdentifier(
+//									data.getImageUrl(), "drawable", getPackageName() );
+//							adapter.add(new CardModel("", "",getDrawable(resourceId) ));
+//
+//							int result =
+//									getResources().getIdentifier(data.getImageUrl(), "drawable", "com.deliCoin2.demo");
 							if(i>=30)
 							{
 								break;
 							}
-							int result = getResources().getIdentifier(pic.getImageUrl(), "drawable", getPackageName());
-							//CardModel cardModel = new CardModel("Brochetas de Seitan", "Description goes here", r.getDrawable(R.drawable.redmonkey_brochetas_de_seitan));
+							int result = getApplicationContext().getResources().getIdentifier(
+									pic.getImageUrl(), "drawable", getApplicationContext().getPackageName());
+
+//							String uri = "@drawable/"+pic.getImageUrl();
+//							int result = getResources().getIdentifier(uri, null, getPackageName());
+
+//							String PACKAGE_NAME = getApplicationContext().getPackageName();
+//							String uri = PACKAGE_NAME+":drawable/"+pic.getImageUrl();
+//							int result = getResources().getIdentifier(uri, null, null);
+
+							/*CardModel cardModel1 = new CardModel("Brochetas de Seitan", "Description goes here","", r.getDrawable(R.drawable.redmonkey_brochetas_de_seitan));
 							CardModel cardModel = new CardModel(pic.getTitle(), "", pic.getCategory(), getResources().getDrawable(result ));
 							cardModel.setOnClickListener(new CardModel.OnClickListener() {
 								@Override
@@ -126,7 +166,8 @@ public class MainActivity extends Activity {
 							i++;
 							Log.i(TAG, i+"");
 
-						}
+						}*/
+
 
 						/*//Nuestro código a ejecutar en este momento
 
@@ -154,7 +195,7 @@ public class MainActivity extends Activity {
 
 						adapter.add(cardModel);*/
 						mCardContainer.setAdapter(adapter);
-					}
+		/*			}
 				} catch (Exception e) {
 					Log.e(TAG, e.getMessage());
 				}
@@ -165,13 +206,22 @@ public class MainActivity extends Activity {
 			}
 		});
 
-
+        */
 
 	}
 
 	@Override
 	public void onStart(){
 		super.onStart();
+		if(adapter!=null && adapter.getCount()==0)
+		{
+			Resources r = getResources();
+			adapter.add(new CardModel("Ensalada Casero Jota", "Description goes here","", r.getDrawable(R.drawable.ensalada_casero_jota)));
+			adapter.add(new CardModel("Ensalada de Mango", "Description goes here","", r.getDrawable(R.drawable.ensalada_de_mango)));
+			adapter.add(new CardModel("Ensalada de Pollo", "Description goes here","", r.getDrawable(R.drawable.ensalada_de_pollo)));
+			adapter.add(new CardModel("Ensalada de Quinua", "Description goes here","", r.getDrawable(R.drawable.ensalada_de_quinua)));
+			adapter.add(new CardModel("Granola Falluta", "Description goes here","", r.getDrawable(R.drawable.granola_falluta)));
+		}
 	}
 
 	class Retrievedata extends AsyncTask<String, Void, Bitmap> {
@@ -200,4 +250,6 @@ public class MainActivity extends Activity {
 			}
 		}
 	}
+
+
 }
